@@ -1,0 +1,62 @@
+﻿@model Arrecadar3.Models.Campanha
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Campanha</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OngId" class="control-label"></label>
+                <select asp-for="OngId" class ="form-control" asp-items="ViewBag.OngId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meta_Arrecadacao" class="control-label"></label>
+                <input asp-for="Meta_Arrecadacao" class="form-control" />
+                <span asp-validation-for="Meta_Arrecadacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor_Arrecadado" class="control-label"></label>
+                <input asp-for="Valor_Arrecadado" class="form-control" />
+                <span asp-validation-for="Valor_Arrecadado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data_Inicio" class="control-label"></label>
+                <input asp-for="Data_Inicio" class="form-control" />
+                <span asp-validation-for="Data_Inicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagem_Url" class="control-label"></label>
+                <input asp-for="Imagem_Url" class="form-control" />
+                <span asp-validation-for="Imagem_Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
