@@ -9,123 +9,141 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Arrecadar3
 build_property.RootNamespace = Arrecadar3
-build_property.ProjectDir = C:\Users\Home\source\repos\Arrecadar3\Arrecadar3\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\86555588004\source\repos\Arrecadar3\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Home\source\repos\Arrecadar3\Arrecadar3
+build_property.MSBuildProjectDirectory = C:\Users\86555588004\source\repos\Arrecadar3
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Campanhas/Create.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Atualizacao_Campanha/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR1YWxpemFjYW9fQ2FtcGFuaGFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Atualizacao_Campanha/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR1YWxpemFjYW9fQ2FtcGFuaGFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Atualizacao_Campanha/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR1YWxpemFjYW9fQ2FtcGFuaGFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Atualizacao_Campanha/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR1YWxpemFjYW9fQ2FtcGFuaGFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Atualizacao_Campanha/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR1YWxpemFjYW9fQ2FtcGFuaGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Campanhas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFuaGFzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Campanhas/Delete.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Campanhas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFuaGFzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Campanhas/Details.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Campanhas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFuaGFzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Campanhas/Edit.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Campanhas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFuaGFzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Campanhas/Index.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Campanhas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFuaGFzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Home/Index.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Home/Privacy.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Ongs/Create.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Ongs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT25nc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Ongs/Delete.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Ongs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT25nc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Ongs/Details.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Ongs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT25nc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Ongs/Edit.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Ongs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT25nc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Ongs/Index.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Ongs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT25nc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Shared/Error.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/_ViewImports.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/_ViewStart.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Home/source/repos/Arrecadar3/Arrecadar3/Views/Shared/_Layout.cshtml]
+[C:/Users/86555588004/source/repos/Arrecadar3/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zfknv7uu88

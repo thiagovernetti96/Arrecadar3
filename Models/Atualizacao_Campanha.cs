@@ -10,7 +10,7 @@ namespace Arrecadar3.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [ForeignKey(nameof(Campanha))]
+        //[ForeignKey(nameof(Campanha))]
         public int CampanhaId { get; set; }
         [Required]
         public Campanha Campanha { get; set; }

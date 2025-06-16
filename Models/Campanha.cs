@@ -14,10 +14,10 @@ namespace Arrecadar3.Models
             public string Titulo { get; set; }
 
             [Required]
-            [ForeignKey(nameof(Ongs))]
+            //[ForeignKey(nameof(Ongs))]
             public int OngId { get; set; }
 
-            [Required]
+           
             public Ong Ongs { get; set; }
 
 

@@ -19,7 +19,7 @@ namespace Arrecadar3.Models
         [Required]
         public string UserId { get; set; }
 
-        [ForeignKey("UserId")]
+        //[ForeignKey("UserId")]
         public IdentityUser User { get; set; }
 
 
