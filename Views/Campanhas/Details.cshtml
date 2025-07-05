@@ -20,7 +20,7 @@
             @Html.DisplayNameFor(model => model.Ongs)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ongs.Area_Atuacao)
+            @Html.DisplayFor(model => model.Ongs.Nome)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Descricao)
@@ -46,11 +46,21 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Data_Inicio)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Imagem_Url)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Foto_Perfil)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Imagem_Url)
+        <dd class="col-sm-10">
+            @if (Model.Foto_Perfil != null && Model.Foto_Perfil.Length > 0)
+            {
+                <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Foto_Perfil)"
+                     alt="Logo da ONG"
+                     class="img-fluid"
+                     style="max-width: 300px; height: auto;" />
+            }
+            else
+            {
+                <span class="text-muted">Nenhuma imagem cadastrada</span>
+            }
         </dd>
     </dl>
 </div>

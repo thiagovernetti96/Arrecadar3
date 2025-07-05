@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -34,19 +34,14 @@
                 <span asp-validation-for="Meta_Arrecadacao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Valor_Arrecadado" class="control-label"></label>
-                <input asp-for="Valor_Arrecadado" class="form-control" />
-                <span asp-validation-for="Valor_Arrecadado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Data_Inicio" class="control-label"></label>
                 <input asp-for="Data_Inicio" class="form-control" />
                 <span asp-validation-for="Data_Inicio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Imagem_Url" class="control-label"></label>
-                <input asp-for="Imagem_Url" class="form-control" />
-                <span asp-validation-for="Imagem_Url" class="text-danger"></span>
+                <label asp-for="Foto_Perfil" class="control-label"></label>
+                <input type="file" asp-for="Foto_Perfil" class="form-control" />
+                <span asp-validation-for="Foto_Perfil" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

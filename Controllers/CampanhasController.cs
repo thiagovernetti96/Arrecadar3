@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Arrecadar3.Data;
 using Arrecadar3.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Arrecadar3.Controllers
 {
     public class CampanhasController : Controller
     {
         private readonly Arrecadar3Context _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CampanhasController(Arrecadar3Context context)
+        public CampanhasController(Arrecadar3Context context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Campanhas
@@ -35,7 +38,7 @@ namespace Arrecadar3.Controllers
             }
 
             var campanha = await _context.Campanha
-                .Include(c => c.Ongs)
+                .Include(c => c.Ongs).Include(c=>c.Doacoes)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (campanha == null)
             {
@@ -46,9 +49,10 @@ namespace Arrecadar3.Controllers
         }
 
         // GET: Campanhas/Create
+        [Authorize]
         public IActionResult Create()
         {
-            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Area_Atuacao");
+            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Nome");
             return View();
         }
 
@@ -57,19 +61,33 @@ namespace Arrecadar3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,OngId,Descricao,Meta_Arrecadacao,Valor_Arrecadado,Data_Inicio,Imagem_Url")] Campanha campanha)
+        [Authorize]
+        public async Task<IActionResult> Create([Bind("Id,Titulo,OngId,Descricao,Meta_Arrecadacao,Data_Inicio,Foto_Perfil_Arquivo")]
+        Campanha campanha)
         {
             if (ModelState.IsValid)
             {
+                
+                if (campanha.Foto_Perfil_Arquivo != null && campanha.Foto_Perfil_Arquivo.Length > 0)
+                {
+
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await campanha.Foto_Perfil_Arquivo.CopyToAsync(memoryStream);
+                        campanha.Foto_Perfil = memoryStream.ToArray();
+                    }
+                }
+                
                 _context.Add(campanha);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Area_Atuacao", campanha.OngId);
+            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Nome", campanha.OngId);
             return View(campanha);
         }
 
         // GET: Campanhas/Edit/5
+     
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Campanha == null)
@@ -82,7 +100,7 @@ namespace Arrecadar3.Controllers
             {
                 return NotFound();
             }
-            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Area_Atuacao", campanha.OngId);
+            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Nome", campanha.OngId);
             return View(campanha);
         }
 
@@ -91,7 +109,9 @@ namespace Arrecadar3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,OngId,Descricao,Meta_Arrecadacao,Valor_Arrecadado,Data_Inicio,Imagem_Url")] Campanha campanha)
+        [Authorize]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,OngId,Descricao,Meta_Arrecadacao,Valor_Arrecadado,Data_Inicio,Foto_Perfil_Arquivo")]
+        Campanha campanha)
         {
             if (id != campanha.Id)
             {
@@ -118,11 +138,12 @@ namespace Arrecadar3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Area_Atuacao", campanha.OngId);
+            ViewData["OngId"] = new SelectList(_context.Ong, "Id", "Nome", campanha.OngId);
             return View(campanha);
         }
 
         // GET: Campanhas/Delete/5
+      
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Campanha == null)
@@ -144,6 +165,7 @@ namespace Arrecadar3.Controllers
         // POST: Campanhas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Campanha == null)

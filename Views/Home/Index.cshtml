@@ -1,8 +1,93 @@
-﻿@{
+﻿@model Arrecadar3.ViewModels.HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<h2 class="text-center">Campanhas</h2>
+
+@if (Model?.Campanhas == null || !Model.Campanhas.Any())
+{
+    <div class="alert alert-info">Nenhuma campanha encontrada.</div>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model.Campanhas)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    @if (item.Foto_Perfil != null && item.Foto_Perfil.Length > 0)
+                    {
+                        var base64 = Convert.ToBase64String(item.Foto_Perfil);
+                        var imgSrc = $"data:image/jpeg;base64,{base64}";
+
+                        <img src="@imgSrc"
+                             class="card-img-top"
+                             alt="@item.Titulo"
+                             style="height: 200px; object-fit: cover;">
+                    }
+                    else
+                    {
+                        <img src="~/images/default-campaign.jpg"
+                             class="card-img-top"
+                             alt="Imagem padrão"
+                             style="height: 200px; object-fit: cover;">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Titulo</h5>
+                        @{
+                            var detailsUrl = Url.Action("Details", "Campanhas", new { id = item.Id });
+                            var doacaoUrl = Url.Action("Create", "Doacaos", new { id = item.Id });
+                        }
+                        <a href="@detailsUrl" class="btn btn-primary">Ver detalhes</a>
+                        <a href="@doacaoUrl" class="btn btn-primary">Doar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<h2 class="text-center">Ongs</h2>
+
+@if (Model?.Ongs == null || !Model.Ongs.Any())
+{
+    <div class="alert alert-info">Nenhuma ONG encontrada.</div>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model.Ongs)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    @if (item.Foto_Perfil != null && item.Foto_Perfil.Length > 0)
+                    {
+                        var base64 = Convert.ToBase64String(item.Foto_Perfil);
+                        var imgSrc = $"data:image/jpeg;base64,{base64}";
+
+                        <img src="@imgSrc"
+                             class="card-img-top"
+                             alt="@item.Nome"
+                             style="height: 200px; object-fit: cover;">
+                    }
+                    else
+                    {
+                        <img src="~/images/default-campaign.jpg"
+                             class="card-img-top"
+                             alt="Imagem padrão"
+                             style="height: 200px; object-fit: cover;">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Nome</h5>
+                        @{
+                            var ongDetailsUrl = Url.Action("Details", "Ongs", new { id = item.Id });
+                        }
+                        <a href="@ongDetailsUrl" class="btn btn-primary">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

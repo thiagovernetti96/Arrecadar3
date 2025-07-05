@@ -25,4 +25,6 @@ public class Arrecadar3Context : IdentityDbContext<IdentityUser>
     public DbSet<Arrecadar3.Models.Campanha>? Campanha { get; set; }
 
     public DbSet<Arrecadar3.Models.Atualizacao_Campanha>? Atualizacao_Campanha { get; set; }
+
+    public DbSet<Arrecadar3.Models.Doacao>? Doacao { get; set; }
 }

@@ -9,29 +9,40 @@ namespace Arrecadar3.Models
             [Key]
             public int Id { get; set; }
 
-            [Required, Range(5, 100)]
             [RegularExpression(@"^[a-zA-ZÀ-ú\s'-]+$")]
             public string Titulo { get; set; }
 
             [Required]
-            //[ForeignKey(nameof(Ongs))]
+            [ForeignKey(nameof(Ongs))]
+            [Display(Name = "Ong")]
             public int OngId { get; set; }
 
            
-            public Ong Ongs { get; set; }
+            public Ong? Ongs { get; set; }
 
-
-            [Required, Range(10, 1000)]
             [RegularExpression(@"^[a-zA-ZÀ-ú0-9\s']+$")]
             public string Descricao { get; set; }
             public decimal? Meta_Arrecadacao { get; set; }
-            public decimal? Valor_Arrecadado { get; set; }
-            [Required]
+            
+            public decimal? Valor_Arrecadado
+            {
+                get => Doacoes?.Sum(d => d.Valor_Doado) ?? 0;
+                set { } 
+            }
+
+            public ICollection<Doacao>? Doacoes { get; set; }
+
+        [Required]
             [DataType(DataType.Date)]
             public DateTime Data_Inicio { get; set; }
-            public string? Imagem_Url { get; set; }
+        public byte[]? Foto_Perfil { get; set; }
 
-            public enum Status
+        [NotMapped]
+        [DataType(DataType.Upload)]
+        [AllowedExtensions(new string[] { ".jpg", ".png", ".jpeg", ".gif" })]
+        public IFormFile? Foto_Perfil_Arquivo { get; set; }
+
+        public enum Status
             {
                 Ativa,
                 Suspensa,

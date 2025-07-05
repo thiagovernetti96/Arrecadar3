@@ -1,21 +1,31 @@
-﻿using Arrecadar3.Models;
+﻿using Arrecadar3.Data;
+using Arrecadar3.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Arrecadar3.ViewModels;
 
 namespace Arrecadar3.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
+        private readonly Arrecadar3Context _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,Arrecadar3Context context)
         {
-            _logger = logger;
+              _context = context;
+           
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = new HomeViewModel
+            {
+                Campanhas = _context.Campanha.ToList(),
+                Ongs = _context.Ong.ToList()
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()

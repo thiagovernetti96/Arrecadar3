@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Arrecadar3.Data;
 using Arrecadar3.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Arrecadar3.Controllers
 {
@@ -46,9 +47,10 @@ namespace Arrecadar3.Controllers
         }
 
         // GET: Atualizacao_Campanha/Create
+        [Authorize]
         public IActionResult Create()
         {
-            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Descricao");
+            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Titulo");
             return View();
         }
 
@@ -57,15 +59,25 @@ namespace Arrecadar3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CampanhaId,Titulo,Descricao,Imagem_Url,Data_Publicacao")] Atualizacao_Campanha atualizacao_Campanha)
+        [Authorize]
+        public async Task<IActionResult> Create([Bind("Id,CampanhaId,Titulo,Descricao,Foto_Perfil_Arquivo,Data_Publicacao")] Atualizacao_Campanha atualizacao_Campanha)
         {
             if (ModelState.IsValid)
             {
+                if (atualizacao_Campanha.Foto_Perfil_Arquivo != null && atualizacao_Campanha.Foto_Perfil_Arquivo.Length > 0)
+                {
+
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await atualizacao_Campanha.Foto_Perfil_Arquivo.CopyToAsync(memoryStream);
+                        atualizacao_Campanha.Foto_Perfil = memoryStream.ToArray();
+                    }
+                }
                 _context.Add(atualizacao_Campanha);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Descricao", atualizacao_Campanha.CampanhaId);
+            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Titulo", atualizacao_Campanha.CampanhaId);
             return View(atualizacao_Campanha);
         }
 
@@ -82,7 +94,7 @@ namespace Arrecadar3.Controllers
             {
                 return NotFound();
             }
-            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Descricao", atualizacao_Campanha.CampanhaId);
+            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Titulo", atualizacao_Campanha.CampanhaId);
             return View(atualizacao_Campanha);
         }
 
@@ -91,7 +103,7 @@ namespace Arrecadar3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CampanhaId,Titulo,Descricao,Imagem_Url,Data_Publicacao")] Atualizacao_Campanha atualizacao_Campanha)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CampanhaId,Titulo,Descricao,Foto_Perfil_Arquivo,Data_Publicacao")] Atualizacao_Campanha atualizacao_Campanha)
         {
             if (id != atualizacao_Campanha.Id)
             {
@@ -118,7 +130,7 @@ namespace Arrecadar3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Descricao", atualizacao_Campanha.CampanhaId);
+            ViewData["CampanhaId"] = new SelectList(_context.Campanha, "Id", "Titulo", atualizacao_Campanha.CampanhaId);
             return View(atualizacao_Campanha);
         }
 

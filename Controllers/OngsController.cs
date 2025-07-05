@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Arrecadar3.Data;
 using Arrecadar3.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Arrecadar3.Controllers
 {
     public class OngsController : Controller
     {
         private readonly Arrecadar3Context _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public OngsController(Arrecadar3Context context)
+        public OngsController(Arrecadar3Context context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Ongs
@@ -46,9 +50,10 @@ namespace Arrecadar3.Controllers
         }
 
         // GET: Ongs/Create
+       [Authorize]
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email");
             return View();
         }
 
@@ -57,19 +62,33 @@ namespace Arrecadar3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,UserId,Cnpj,Telefone,Area_Atuacao,Descricao,Foto_Perfil_Url")] Ong ong)
+        [Authorize]
+        public async Task<IActionResult> Create(
+        [Bind("UserId,Nome,Cnpj,Telefone,Area_Atuacao,Descricao,Foto_Perfil_Arquivo")] Ong ong)
         {
             if (ModelState.IsValid)
             {
+                ong.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (ong.Foto_Perfil_Arquivo != null && ong.Foto_Perfil_Arquivo.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await ong.Foto_Perfil_Arquivo.CopyToAsync(memoryStream);
+                        ong.Foto_Perfil = memoryStream.ToArray();
+                    }
+                }
+
                 _context.Add(ong);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", ong.UserId);
+
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", ong.UserId);
             return View(ong);
         }
 
         // GET: Ongs/Edit/5
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Ong == null)
@@ -91,7 +110,8 @@ namespace Arrecadar3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,UserId,Cnpj,Telefone,Area_Atuacao,Descricao,Foto_Perfil_Url")] Ong ong)
+        [Authorize]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,UserId,Cnpj,Telefone,Area_Atuacao,Descricao,Foto_Perfil")] Ong ong)
         {
             if (id != ong.Id)
             {
@@ -100,6 +120,14 @@ namespace Arrecadar3.Controllers
 
             if (ModelState.IsValid)
             {
+                if (ong.Foto_Perfil_Arquivo != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await ong.Foto_Perfil_Arquivo.CopyToAsync(memoryStream);
+                        ong.Foto_Perfil = memoryStream.ToArray();
+                    }
+                }
                 try
                 {
                     _context.Update(ong);
@@ -123,6 +151,7 @@ namespace Arrecadar3.Controllers
         }
 
         // GET: Ongs/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Ong == null)
@@ -144,6 +173,7 @@ namespace Arrecadar3.Controllers
         // POST: Ongs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Ong == null)

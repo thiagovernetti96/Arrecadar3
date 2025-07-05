@@ -570,3 +570,4 @@ C:\Users\86555588004\source\repos\Arrecadar3\obj\Debug\net6.0\refint\Arrecadar3.
 C:\Users\86555588004\source\repos\Arrecadar3\obj\Debug\net6.0\Arrecadar3.pdb
 C:\Users\86555588004\Source\Repos\Arrecadar3\obj\Debug\net6.0\Arrecadar3.genruntimeconfig.cache
 C:\Users\86555588004\Source\Repos\Arrecadar3\obj\Debug\net6.0\ref\Arrecadar3.dll
+C:\Users\Home\source\repos\Arrecadar3\Arrecadar3\obj\Debug\net6.0\Arrecadar3.sourcelink.json

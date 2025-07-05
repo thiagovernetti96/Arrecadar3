@@ -22,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Imagem_Url)
+                @Html.DisplayNameFor(model => model.Foto_Perfil)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Data_Publicacao)
@@ -43,7 +43,16 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Imagem_Url)
+                @if (item.Foto_Perfil != null && item.Foto_Perfil.Length > 0)
+                {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.Foto_Perfil)"
+                            alt="Logo da ONG"
+                            style="max-width: 80px; height: auto;" />
+                }
+                else
+                {
+                    <span>Sem imagem</span>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Data_Publicacao)

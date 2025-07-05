@@ -31,7 +31,7 @@
                 @Html.DisplayNameFor(model => model.Data_Inicio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Imagem_Url)
+                @Html.DisplayNameFor(model => model.Foto_Perfil)
             </th>
             <th></th>
         </tr>
@@ -43,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ongs.Area_Atuacao)
+                @Html.DisplayFor(modelItem => item.Ongs.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Descricao)
@@ -58,7 +58,19 @@
                 @Html.DisplayFor(modelItem => item.Data_Inicio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Imagem_Url)
+                    @if (item.Foto_Perfil != null && item.Foto_Perfil.Length > 0)
+                    {
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.Foto_Perfil)"
+                             alt="Logo da ONG"
+                             style="max-width: 80px; height: auto;" />
+                    }
+                    else
+                    {
+                        <span>Sem imagem</span>
+                    }
+            </td>
+            <td>
+                    <div asp-validation-summary="All" class="text-danger"></div>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -17,10 +17,11 @@ namespace Arrecadar3.Models
 
 
         [Required]
+        [Display(Name = "Usuário Responsável")]
         public string UserId { get; set; }
 
-        //[ForeignKey("UserId")]
-        public IdentityUser User { get; set; }
+        [ForeignKey("UserId")]
+        public IdentityUser? User { get; set; }
 
 
         [Required]
@@ -30,14 +31,17 @@ namespace Arrecadar3.Models
         public string Telefone { get; set; }
 
         [Required]
-        [Range(4, 100)]
         public string Area_Atuacao { get; set; }
 
         [Required]
-        [Range(10, 1000)]
         public string Descricao { get; set; }
 
-        public string? Foto_Perfil_Url { get; set; }
+        public byte[]? Foto_Perfil { get; set; }
+
+        [NotMapped]
+        [DataType(DataType.Upload)]
+        [AllowedExtensions(new string[] { ".jpg", ".png", ".jpeg", ".gif" })]
+        public IFormFile? Foto_Perfil_Arquivo { get; set; }
 
 
 

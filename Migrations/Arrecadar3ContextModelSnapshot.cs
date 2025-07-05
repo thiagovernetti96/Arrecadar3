@@ -40,8 +40,8 @@ namespace Arrecadar3.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Imagem_Url")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Foto_Perfil")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -69,8 +69,8 @@ namespace Arrecadar3.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Imagem_Url")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Foto_Perfil")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<decimal?>("Meta_Arrecadacao")
                         .HasColumnType("decimal(18,2)");
@@ -90,6 +90,30 @@ namespace Arrecadar3.Migrations
                     b.HasIndex("OngId");
 
                     b.ToTable("Campanha");
+                });
+
+            modelBuilder.Entity("Arrecadar3.Models.Doacao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CampanhaId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Valor_Doado")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CampanhaId");
+
+                    b.ToTable("Doacao");
                 });
 
             modelBuilder.Entity("Arrecadar3.Models.Ong", b =>
@@ -112,8 +136,8 @@ namespace Arrecadar3.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Foto_Perfil_Url")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Foto_Perfil")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -358,6 +382,17 @@ namespace Arrecadar3.Migrations
                     b.Navigation("Ongs");
                 });
 
+            modelBuilder.Entity("Arrecadar3.Models.Doacao", b =>
+                {
+                    b.HasOne("Arrecadar3.Models.Campanha", "Campanha")
+                        .WithMany("Doacoes")
+                        .HasForeignKey("CampanhaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Campanha");
+                });
+
             modelBuilder.Entity("Arrecadar3.Models.Ong", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
@@ -418,6 +453,11 @@ namespace Arrecadar3.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Arrecadar3.Models.Campanha", b =>
+                {
+                    b.Navigation("Doacoes");
                 });
 #pragma warning restore 612, 618
         }
