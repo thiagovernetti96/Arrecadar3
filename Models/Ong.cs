@@ -31,16 +31,20 @@ namespace Arrecadar3.Models
         public string Telefone { get; set; }
 
         [Required]
+        [Display(Name ="Área de Atuação")]
         public string Area_Atuacao { get; set; }
 
         [Required]
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
+        
         public byte[]? Foto_Perfil { get; set; }
 
         [NotMapped]
         [DataType(DataType.Upload)]
         [AllowedExtensions(new string[] { ".jpg", ".png", ".jpeg", ".gif" })]
+        [Display(Name = "Imagem da Ong")]
         public IFormFile? Foto_Perfil_Arquivo { get; set; }
 
 

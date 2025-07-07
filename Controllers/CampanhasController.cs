@@ -25,7 +25,7 @@ namespace Arrecadar3.Controllers
         // GET: Campanhas
         public async Task<IActionResult> Index()
         {
-            var arrecadar3Context = _context.Campanha.Include(c => c.Ongs);
+            var arrecadar3Context = _context.Campanha.Include(c => c.Ongs).Include(c=>c.Doacoes);
             return View(await arrecadar3Context.ToListAsync());
         }
 

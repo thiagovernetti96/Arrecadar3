@@ -21,9 +21,12 @@ namespace Arrecadar3.Models
             public Ong? Ongs { get; set; }
 
             [RegularExpression(@"^[a-zA-ZÀ-ú0-9\s']+$")]
+            [Display(Name = "Descrição")]
             public string Descricao { get; set; }
+            [Display(Name = "Meta de Arrecadação")]
             public decimal? Meta_Arrecadacao { get; set; }
-            
+
+            [Display(Name ="Valor Arrecadado")]  
             public decimal? Valor_Arrecadado
             {
                 get => Doacoes?.Sum(d => d.Valor_Doado) ?? 0;
@@ -32,14 +35,17 @@ namespace Arrecadar3.Models
 
             public ICollection<Doacao>? Doacoes { get; set; }
 
-        [Required]
+            [Required]
             [DataType(DataType.Date)]
+            [Display(Name ="Data de Início")]
             public DateTime Data_Inicio { get; set; }
+        
         public byte[]? Foto_Perfil { get; set; }
 
         [NotMapped]
         [DataType(DataType.Upload)]
         [AllowedExtensions(new string[] { ".jpg", ".png", ".jpeg", ".gif" })]
+        [Display(Name = "Foto da Campanha")]
         public IFormFile? Foto_Perfil_Arquivo { get; set; }
 
         public enum Status

@@ -16,9 +16,11 @@ namespace Arrecadar3.Models
         public Campanha? Campanha { get; set; }
 
         [RegularExpression(@"^[a-zA-ZÀ-ú0-9\s']+$")]
+        [Display(Name ="Título")]
         public string Titulo { get; set; }
 
         [RegularExpression(@"^[a-zA-ZÀ-ú0-9\s']+$")]
+        [Display(Name ="Descrição")]
         public string Descricao { get; set; }
 
         public byte[]? Foto_Perfil { get; set; }
@@ -26,9 +28,11 @@ namespace Arrecadar3.Models
         [NotMapped]
         [DataType(DataType.Upload)]
         [AllowedExtensions(new string[] { ".jpg", ".png", ".jpeg", ".gif" })]
+        [Display(Name ="Imagem da Atualização")]
         public IFormFile? Foto_Perfil_Arquivo { get; set; }
 
         [DataType(DataType.Date)]
+        [Display(Name ="Data da Publicação")]
         public DateTime Data_Publicacao { get; set; }
     }
 }

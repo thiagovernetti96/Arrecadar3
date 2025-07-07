@@ -38,7 +38,7 @@ else
                         <h5 class="card-title">@item.Titulo</h5>
                         @{
                             var detailsUrl = Url.Action("Details", "Campanhas", new { id = item.Id });
-                            var doacaoUrl = Url.Action("Create", "Doacaos", new { id = item.Id });
+                            var doacaoUrl = Url.Action("Create", "Doacaos");
                         }
                         <a href="@detailsUrl" class="btn btn-primary">Ver detalhes</a>
                         <a href="@doacaoUrl" class="btn btn-primary">Doar</a>
